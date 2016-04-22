@@ -7,4 +7,4 @@ mkdir -p /etc/tmux
 cp ./etc/* /etc/tmux/
 
 # Create the simbolic link to reference the tmux configuration
-ln -s ~/tmux.conf /etc/tmux/.tmux.conf
+ln -s /etc/tmux/tmux.conf ~/.tmux.conf
