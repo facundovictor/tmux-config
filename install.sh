@@ -26,6 +26,11 @@ fi
 # Load all profile configs
 cp -ru ./etc/profile.d/* /etc/profile.d/
 
-# Create the simbolic links to reference the tmux configuration
-ln -s /etc/tmux/tmux.conf ~/.tmux.conf
-ln -s /etc/tmux/conf/ ~/.tmux
+if [ ! -L ~/.tmux.conf ] ; then
+    # Create the simbolic links to reference the tmux configuration
+    ln -s /etc/tmux/tmux.conf ~/.tmux.conf
+fi
+
+if [ ! -L ~/.tmux ] ; then
+    ln -s /etc/tmux/conf/ ~/.tmux
+fi
