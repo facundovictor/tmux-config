@@ -20,12 +20,12 @@ if [ "$LINK_ONLY" = false ] ; then
     mkdir -p /etc/tmux/conf/powerline
 
     # Copy the configuration code into the config directory
-    cp -ru ./etc/* /etc/tmux/
+    cp -ru ./etc/tmux/* /etc/tmux/
 fi
 
 if [ ! -f /etc/profile.d/tmux.sh ] ; then
     # Load all profile configs
-	cp -ru ./profile.d/* /etc/profile.d/
+	cp -ru ./etc/profile.d/* /etc/profile.d/
 fi
 
 # Create the simbolic links to reference the tmux configuration
