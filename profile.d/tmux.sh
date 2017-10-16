@@ -1,5 +1,7 @@
 #!/usr/bin/bash -vx
 
+export TERM="xterm-256color"
+
 # loadTmuxYaml:
 #    loads a yaml by its name
 loadTmuxYaml(){
