@@ -23,10 +23,8 @@ if [ "$LINK_ONLY" = false ] ; then
     cp -ru ./etc/tmux/* /etc/tmux/
 fi
 
-if [ ! -f /etc/profile.d/tmux.sh ] ; then
-    # Load all profile configs
-	cp -ru ./etc/profile.d/* /etc/profile.d/
-fi
+# Load all profile configs
+cp -ru ./etc/profile.d/* /etc/profile.d/
 
 # Create the simbolic links to reference the tmux configuration
 ln -s /etc/tmux/tmux.conf ~/.tmux.conf
