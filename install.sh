@@ -21,10 +21,18 @@ if [ "$LINK_ONLY" = false ] ; then
 
     # Copy the configuration code into the config directory
     cp -ru ./etc/tmux/* /etc/tmux/
-fi
 
-# Load all profile configs
-cp -ru ./etc/profile.d/* /etc/profile.d/
+    # Load all profile configs
+    cp -ru ./etc/profile.d/* /etc/profile.d/
+
+    # Create the dir where the tmux plugins will be saved
+    mkdir -p /etc/tmux/conf/plugins/
+
+    # Setup Tmux Plugin Manager
+    if [ ! -d /etc/tmux/conf/plugins/tpm ] ; then
+        git clone https://github.com/tmux-plugins/tpm /etc/tmux/conf/plugins/tpm
+    fi
+fi
 
 if [ ! -L ~/.tmux.conf ] ; then
     # Create the simbolic links to reference the tmux configuration
@@ -34,3 +42,4 @@ fi
 if [ ! -L ~/.tmux ] ; then
     ln -s /etc/tmux/conf/ ~/.tmux
 fi
+
